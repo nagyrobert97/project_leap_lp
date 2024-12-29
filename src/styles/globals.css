@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    @apply backdrop-blur-md bg-opacity-20 dark:bg-opacity-30;
+  }
+
+  .interactive-border {
+    @apply border border-primary/30 dark:border-primary/20 hover:border-primary/40 dark:hover:border-primary/30;
+  }
+
+  .accent-glow {
+    @apply transition-shadow duration-300 hover:shadow-glow dark:hover:shadow-glow-strong;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+}
